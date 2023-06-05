@@ -87,22 +87,12 @@
 <div id="content-wrap">
     <section class="flex h-screen overflow-hidden" >
         <div class="bg-white xl:w-3/12 lg:w-4/12 w-full p-6">
-            <h3 class="text-2xl mb-8">Chat en línea</h3>
+            <h3 class="text-2xl mb-8" style="font-weight: bolder;">Chat en línea</h3>
             <div class="flex overflow-auto w-full mb-8" id="usernames">
                 <div class="mr-4 text-center self-center">
                 </div>
             </div>
-            <div class="overflow-auto h-4/5">
-                <div class="flex bg-gray-100 mb-4 p-4 rounded">
-                    <img src="assets/persona.png" class="self-start rounded-full w-12 mr-4">
-                    <div class="w-full overflow-hidden">
-                        <div class="flex mb-1">
-                            <p class="font-medium flex-grow">Diego Velázquez</p>
-                            <small class="text-gray-500">09:55 am</small>
-                        </div>
-                        <small class="overflow-ellipsis overflow-hidden block whitespace-nowrap text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dapibus a erat ac facilisis. Quisque in fringilla lorem.</small>
-                    </div>
-                </div>
+            <div class="overflow-auto h-4/5" id="ultimosMensajes">
             </div>
         </div>
         <div class="bg-gray-100 xl:w-9/12 lg:w-8/12 hidden lg:block">
@@ -110,11 +100,11 @@
                 <div class="flex">
                     <div class="flex flex-grow">
                         <div class="relative mr-4">
-                            <img src="assets/persona.png" class="rounded-full w-12">
+                            <img src="assets/descargaUA.png" class="rounded-full w-12">
                             <div class="absolute bg-green-300 p-1 rounded-full bottom-0 right-0 border-2 border-gray-800"></div>
                         </div>
                         <div>
-                            <p class="font-medium">Daniela López</p>
+                            <p class="font-medium">Alumnos UA</p>
                             <small class="text-gray-500">Online</small>
                         </div>
                     </div>
@@ -122,9 +112,9 @@
                         <svg class="w-6 mr-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
-                        <svg class="w-6 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z" />
-                        </svg>
+                        <div class="w-6 mr-4 text-gray-500" style="margin-top: 5px; font-size: 25px;">
+                            <a class="enlace-salir" href="/"><i class="fas fa-sign-out-alt salir"></i></a> 
+                        </div>
                     </div>
                 </div>
             </div>

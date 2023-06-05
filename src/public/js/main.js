@@ -7,12 +7,12 @@ $(function(){
     const messageForm = $('#messages-form');
     const messageBox = $('#message');
     const chat = $('#chat');
-
     const nickForm = $('#nick-form');
     const nickError = $('#nick-error');
     const nickName = $('#nick-name');
-
     const userNames = $('#usernames');
+    const ultimosMensajes = $('#ultimosMensajes');
+
 
     //Eventos
 
@@ -28,15 +28,28 @@ $(function(){
     //Obtenemos respuesta del servidor:
     socket.on('nuevo mensaje', function(datos){
         let color = 'bg-white';
-        if(nick == datos.nick){
-            color = 'bg-purple-300';
-        }
         var fecha= new Date();
         var hora_actual = fecha.getHours()+ ":" +fecha.getHours();
         
+        if(nick == datos.nick){
+            color = 'bg-purple-300';
+        } 
+
+        ultimosMensajes.append( `<div class="flex bg-gray-100 mb-4 p-4 rounded" id="ultimosMensajes">
+        <img src="assets/persona.png" class="self-start rounded-full w-12 mr-4">
+        <div class="w-full overflow-hidden">
+            <div class="flex mb-1">
+                <p class="font-medium flex-grow">${datos.nick}</p>
+                <small class="text-gray-500">${hora_actual}</small>
+            </div>
+            <small class="overflow-ellipsis overflow-hidden block whitespace-nowrap text-gray-500">${datos.msg}</small>
+        </div>
+    </div>
+    `);
+    
         chat.append(`
         <div class="flex mb-12">
-        <img src="assets/persona.png" class="self-end rounded-full w-12 mr-4">
+        <img src="assets/fantasma.jpg" class="self-end rounded-full w-12 mr-4">
         <div class="flex flex-col">
         <div class="${color} p-6 rounded-3xl rounded-bl-none w-96 shadow-sm mb-2">
             <p class="font-medium mb-1">${datos.nick}</p>
@@ -87,7 +100,7 @@ $(function(){
             html += `
             <div class="mr-4 text-center self-center">
             <div class="relative w-12 mb-2">
-                <img src="assets/persona.png" class="rounded-full">
+                <img src="assets/fantasma.jpg" class="rounded-full">
                 <div class="absolute bg-green-300 p-1 rounded-full bottom-0 right-0 border-2 border-gray-800"></div>
             </div>
             <small> ${datos[i]}</small>
