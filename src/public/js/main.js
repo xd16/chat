@@ -27,14 +27,23 @@ $(function(){
 
     //Obtenemos respuesta del servidor:
     socket.on('nuevo mensaje', function(datos){
-        let color = '#f5f4f4';
+        let color = 'bg-white';
         if(nick == datos.nick){
-            color = '#9ff4c5';
+            color = 'bg-purple-300';
         }
+        var fecha= new Date();
+        var hora_actual = fecha.getHours()+ ":" +fecha.getHours();
         
         chat.append(`
-        <div class="msg-area mb-2" style="background-color:${color}">
-            <p class="msg"><b>${datos.nick} :</b> ${datos.msg}</p>
+        <div class="flex mb-12">
+        <img src="assets/persona.png" class="self-end rounded-full w-12 mr-4">
+        <div class="flex flex-col">
+        <div class="${color} p-6 rounded-3xl rounded-bl-none w-96 shadow-sm mb-2">
+            <p class="font-medium mb-1">${datos.nick}</p>
+            <small class="inline-block text-gray-500 mb-1">${datos.msg}</small>
+        </div>
+        <small class="text-gray-500">${hora_actual}</small>
+        </div>
         </div>
         `);
 
@@ -75,8 +84,19 @@ $(function(){
                 color = '#000';
                 salir = '';
             }
-            html += `<p style="color:${color}"><i class="fas fa-user"></i> ${datos[i]} ${salir}</p>`;
+            html += `
+            <div class="mr-4 text-center self-center">
+            <div class="relative w-12 mb-2">
+                <img src="assets/persona.png" class="rounded-full">
+                <div class="absolute bg-green-300 p-1 rounded-full bottom-0 right-0 border-2 border-gray-800"></div>
+            </div>
+            <small> ${datos[i]}</small>
+        </div>
+            
+            `;
         }
+
+        //<p style="color:${color}"><i class="fas fa-user"></i> ${datos[i]} ${salir}</p>
 
         userNames.html(html);
     });
