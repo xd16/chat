@@ -19,6 +19,6 @@ connexion.query('select * from usuario',function(error,results,fields) {
     if (error) throw error
     
     results.forEach(results => {
-        console.log(results);
+        module.exports = results;
     });
 })

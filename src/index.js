@@ -1,13 +1,13 @@
-
+// const mysql = require('mysql');
 const express = require('express');
 const path = require('path');
 const app = express();
-const mysql = require('./conexion');
-/*
 
-app.listen(3000, () =>{
-    console.log('Servidor en el puerto 3000);
-})
+// ...
+// ...
+
+
+/*
 
 Debido a que utilizamos socketio en la aplicación, para que funcione es necesario asociarlo
 a un servidor. Por ello requerimos el módulo http de nodejs y hacemos que socketio se conecte
